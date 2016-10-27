@@ -1,9 +1,9 @@
-# presto-client-xs-node
+# presto-client-xs
 
 Distributed query engine "Presto" 's client library for node.js.
 
 ```js
-var presto = require('presto-client-xs-xs');
+var presto = require('presto-client-xs');
 var client = new presto.Client({user: 'myname', catalog: 'hive', schema: 'default'});
  
 client.execute('show schemas', function(error, data, columns){
