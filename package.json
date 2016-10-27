@@ -1,6 +1,6 @@
 {
   "name": "presto-client-xs",
-  "version": "1.0",
+  "version": "1.0.0",
   "description": "Distributed query engine Presto client library for node.js",
   "main": "index.js",
   "scripts": {
@@ -8,7 +8,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git://github.com/xushuo/presto-client-xs.git"
+    "url": "git@github.com:xushuo/presto-client-xs.git"
   },
   "keywords": [
     "presto"
