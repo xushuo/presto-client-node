@@ -1,9 +1,9 @@
-# presto-client-node
+# presto-client-xs-node
 
 Distributed query engine "Presto" 's client library for node.js.
 
 ```js
-var presto = require('presto-client');
+var presto = require('presto-client-xs-xs');
 var client = new presto.Client({user: 'myname', catalog: 'hive', schema: 'default'});
  
 client.execute('show schemas', function(error, data, columns){
@@ -13,7 +13,7 @@ client.execute('show schemas', function(error, data, columns){
 
 For queries with long process time and heavy output:
 ```js
-var presto = require('presto-client');
+var presto = require('presto-client-xs');
 var client = new presto.Client({user: 'myname'});
  
 client.execute({
@@ -22,7 +22,7 @@ client.execute({
   schema:  'default',
   state:   function(error, query_id, stats){ console.log({message:"status changed", id:query_id, stats:stats}); },
   columns: function(error, data){ console.log({resultColumns: data}); },
-  data:    function(error, data, columns, stats){ console.log(data); },
+  data:    function(error, data, columns, stats, query_id){ console.log(data); },
   success: function(error, stats){},
   error:   function(error){}
 });
@@ -31,10 +31,10 @@ client.execute({
 ## Installation
 
 ```
-npm install -g presto-client
+npm install -g presto-client-xs
 ```
 
-Or add `presto-client` to your own `packagen.json`, and do `npm install`.
+Or add `presto-client-xs` to your own `packagen.json`, and do `npm install`.
 
 ## API
 
@@ -121,6 +121,8 @@ Attributes of opts [object] are:
     * same as data of `columns` callback
   * stats (optional)
     * runtime statistics object of query
+  * query_id 
+    * same as query_id of `state` callback
 * success [function(error, stats, info) :optional]
   * called once when all results are fetched (default: value of `callback`)
 * error [function(error) :optional]
@@ -202,6 +204,7 @@ var client = new presto.Client({
 
 ## Author & License
 
-* tagomoris
+* xushuo
 * License:
   * MIT (see LICENSE)
+* forked from tagomoris/presto-client-node
